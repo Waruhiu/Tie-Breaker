@@ -1,4 +1,10 @@
-window.onload=randomizer;
+var player1="player 1";
+document.querySelector("#p1").innerHTML=player1;
+var player2="player 2";
+document.querySelector("#p2").innerHTML=player2;
+
+document.querySelector("#play").addEventListener("click", randomizer);
+document.querySelector("#edit").addEventListener("click", names);r
 
 function randomizer(){
 randomNumber1=(Math.floor(Math.random()*6)+1);
@@ -41,13 +47,20 @@ else if(randomNumber2==6){
 }
 
 if (randomNumber1>randomNumber2){
-  document.querySelector("h1").innerHTML=("🎉Player 1 is the winner");
+  document.querySelector("h1").innerHTML=("🎉 "+player1+" is the winner");
 }
 else if (randomNumber1<randomNumber2){
-  document.querySelector("h1").innerHTML=("🎉Player 2 is the winner");
+  document.querySelector("h1").innerHTML=("🎉"+player2+" is the winner");
 }
 else if (randomNumber1==randomNumber2){
   document.querySelector("h1").innerHTML=("😬Looks like a draw");
 }
+
+}
+function names(){
+  player1=prompt("What should we call player 1?");
+  document.querySelector("#p1").innerHTML=player1;
+  player2=prompt("What should we call player 2?");
+  document.querySelector("#p2").innerHTML=player2;
 
 }
